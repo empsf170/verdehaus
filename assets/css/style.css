@@ -793,3 +793,58 @@ h2 em {
         margin-top: 8px
     }
 }
+/* Correction pass: shared premium link hover treatment */
+.line-link{position:relative;transition:color .3s ease,transform .3s ease}
+.line-link:after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:currentColor;transform:scaleX(.35);transform-origin:left;transition:transform .35s ease}
+.line-link:hover{transform:translateX(5px);color:var(--gold)}
+.line-link:hover:after{transform:scaleX(1)}
+.nav-link:hover,.footer-menu a:hover{color:var(--gold)}
+.footer-menu{display:flex;flex-wrap:wrap;gap:14px 24px;margin-top:25px}
+.footer-menu a{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:#c3cbc5;position:relative;padding-bottom:5px;transition:color .3s ease}
+.footer-menu a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s ease}
+.footer-menu a:hover:after{width:100%}
+.footer-description{min-width:0}
+.footer-brand,.brand{font-family:"Playfair Display",serif!important}
+.enquiry button{width:100%;min-height:54px;cursor:pointer;transition:background .3s ease,color .3s ease,transform .3s ease}
+.enquiry button:hover{background:var(--gold);color:var(--green);transform:translateY(-2px)}
+.enquiry input:focus,.enquiry select:focus,.enquiry textarea:focus{border-bottom-color:var(--gold)}
+.perspective{background:#e7e1d5}
+.perspective-grid{display:grid;grid-template-columns:55% 45%;min-height:620px}
+.perspective-image{overflow:hidden}
+.perspective-image img{height:100%;min-height:620px}
+.perspective-copy{padding:7vw 6vw;display:flex;flex-direction:column;justify-content:center}
+.perspective-copy h2{font:500 clamp(3.5rem,6vw,7rem)/.9 "Playfair Display",serif;letter-spacing:-.05em;margin:28px 0}
+.perspective-copy p{max-width:500px;line-height:1.8;color:#53605a}
+.footer-top{align-items:start}
+.social{padding-top:2px}
+.social a{transition:background .3s ease,color .3s ease,border-color .3s ease,transform .3s ease}
+.social a:hover{transform:translateY(-3px)}
+@media(max-width:991px){
+  .footer-menu{gap:12px 18px}
+  .perspective-grid{grid-template-columns:1fr}
+  .perspective-image,.perspective-image img{min-height:460px;height:460px}
+  .perspective-copy{padding:70px 8vw}
+  .enquiry button{width:100%}
+}
+@media(max-width:575px){
+  .footer-menu{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+  .footer-menu a{font-size:.58rem}
+  .perspective-image,.perspective-image img{height:340px;min-height:340px}
+  .perspective-copy{padding:55px 25px}
+  .perspective-copy h2{font-size:3.7rem}
+  .line-link{max-width:100%;white-space:normal}
+}
+
+
+/* Fixed-width custom property dropdown: the native option popup can escape the viewport on tablet/mobile, so the form uses a controlled menu. */
+.property-select{position:relative;width:100%;min-width:0}
+.property-select-toggle{width:100%;min-width:0;margin:0!important;padding:17px 0!important;background:transparent!important;color:var(--ink)!important;border:0!important;border-bottom:1px solid #7e786d!important;border-radius:0!important;box-shadow:none!important;display:flex;align-items:center;justify-content:space-between;text-align:left;font:400 .9rem "DM Sans"!important;letter-spacing:normal!important;text-transform:none!important;cursor:pointer}
+.property-select-toggle i{font-size:.7rem;transition:transform .2s ease}
+.property-select.is-open .property-select-toggle i{transform:rotate(180deg)}
+.property-select-menu{position:absolute;left:0;right:0;top:calc(100% + 2px);width:100%;max-width:100%;min-width:0;background:#f3f0e9;border:1px solid rgba(23,32,28,.18);box-shadow:0 12px 30px rgba(0,0,0,.12);z-index:50;display:none;max-height:220px;overflow-y:auto;overflow-x:hidden}
+.property-select.is-open .property-select-menu{display:block}
+.property-select-menu button{display:block;width:100%;min-width:0;margin:0!important;padding:13px 15px!important;background:transparent!important;color:var(--ink)!important;border:0!important;border-bottom:1px solid rgba(23,32,28,.08)!important;border-radius:0!important;text-align:left;font:400 .9rem "DM Sans"!important;letter-spacing:normal!important;text-transform:none!important;cursor:pointer}
+.property-select-menu button:last-child{border-bottom:0!important}
+.property-select-menu button:hover,.property-select-menu button:focus{background:#e5dfd1!important;outline:none}
+@media(max-width:991.98px){.property-select,.property-select-toggle,.property-select-menu{width:100%;max-width:100%;min-width:0}.property-select-menu{max-height:210px}}
+@media(max-width:575.98px){.property-select-toggle{font-size:16px!important}.property-select-menu{max-height:190px}.property-select-menu button{font-size:16px!important;padding:12px 14px!important}}
